@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0CD35572-3BDA-471C-8703-88164DD660FD}</ProjectGuid>
+    <ProjectGuid>{562C3894-1E61-4ADA-A879-2A2AB9C00C2B}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ExemploBanco</RootNamespace>
-    <AssemblyName>ExemploBanco</AssemblyName>
+    <RootNamespace>ExemploEscola</RootNamespace>
+    <AssemblyName>ExemploEscola</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,14 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agencia.cs" />
-    <Compile Include="CartaoDeCredito.cs" />
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Conta.cs" />
-    <Compile Include="Endereco.cs" />
-    <Compile Include="Gerente.cs" />
+    <Compile Include="Aluno.cs" />
+    <Compile Include="Funcionario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Turma.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

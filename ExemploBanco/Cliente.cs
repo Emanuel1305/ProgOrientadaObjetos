@@ -10,5 +10,6 @@ namespace ExemploBanco
     {
         public string nomeClien;
         public string codigoClien;
+        public Endereco endereco;
     }
 }

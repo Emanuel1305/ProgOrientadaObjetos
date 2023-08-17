@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace ExemploBanco
 {
-    public class CartaoDeCredito
+    public class Endereco
     {
-        public string numeroCart;
-        public string dtValidadeCart;
-        public Cliente cliente;
+        public string rua;
+        public string bairro;
     }
 }
