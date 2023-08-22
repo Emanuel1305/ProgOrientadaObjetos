@@ -27,9 +27,14 @@ namespace ExemploBanco
         }
         public void ImprimeExtrato()
         {
-            Console.WriteLine("\t\t---Extrato Detalhado---");
+            Console.WriteLine("\n\t\t---Extrato Detalhado---");
             Console.WriteLine($"\nSaldo: {saldoCont:c2}");
             Console.WriteLine($"Limite: {limiteCont:c2}");
+        }
+        public void TransferirParaConta(Conta contaTrans, Conta contaReceb, double valor)
+        {
+            contaTrans.saldoCont = contaTrans.saldoCont - valor;
+            contaReceb.saldoCont = contaReceb.saldoCont + valor;
         }
     }
 }

@@ -48,6 +48,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="Endereco.cs" />
+    <Compile Include="Funcionario.cs" />
     <Compile Include="Gerente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

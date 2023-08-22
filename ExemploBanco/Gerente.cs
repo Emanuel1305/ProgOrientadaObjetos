@@ -8,20 +8,21 @@ namespace ExemploBanco
 {
     public class Gerente
     {
-        public double salario;
+        public string nomeGeren;
+        public double salarioGeren;
         public void AumentarSalario()
         {
             AumentarSalario(10);
         }
         public void AumentarSalario(double taxa)
         {
-            double aumento = salario * (taxa / 100);
-            salario = salario + aumento;
+            double aumento = salarioGeren * (taxa / 100);
+            salarioGeren = salarioGeren + aumento;
         }
         public void ImprimirInformacoesGerente()
         {
-            Console.WriteLine("\t\t---Informações gerente---\n");
-            Console.WriteLine($"Salario: {salario}");
+            Console.WriteLine("\t\t---Informações gerente---\n\n");
+            Console.Write($"Nome: {nomeGeren}\nSalario: {salarioGeren:c2}");
         }
     }
 }
