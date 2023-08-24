@@ -36,5 +36,10 @@ namespace ExemploBanco
             contaTrans.saldoCont = contaTrans.saldoCont - valor;
             contaReceb.saldoCont = contaReceb.saldoCont + valor;
         }
+
+        public Conta (Agencia agencia)
+        {
+            this.agencia = agencia;
+        }
     }
 }

@@ -9,5 +9,9 @@ namespace ExemploBanco
     public class Agencia
     {
         public string numeroAgen;
+        public Agencia(string numeroAgen)
+        {
+            this.numeroAgen = numeroAgen;
+        }
     }
 }

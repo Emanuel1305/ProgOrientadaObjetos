@@ -11,5 +11,10 @@ namespace ExemploBanco
         public string numeroCart;
         public string dtValidadeCart;
         public Cliente cliente;
+
+        public CartaoDeCredito(string numeroCart)
+        {
+            this.numeroCart = numeroCart;
+        }
     }
 }
