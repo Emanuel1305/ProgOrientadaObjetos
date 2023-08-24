@@ -278,6 +278,7 @@ namespace ExemploBanco
                         } while (op != 5);                        
                         
                         Console.ReadKey();
+
                         Console.Clear();
                         break;
                     
