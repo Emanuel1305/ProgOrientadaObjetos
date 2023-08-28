@@ -235,13 +235,14 @@ namespace ExemploBanco
             int op = 0;
             int o = 0;
             do {
-                Console.WriteLine("\t\tTestar Métodos---\n\n");
-                Console.Write($"[1] Testar Metodos da Classe Conta\n[2] Testar Métodos da Classe Funcionário\n[3] Sair\nInforme qual deseja executar: ");
+                Console.WriteLine("\t\t---Testar Métodos---\n\n");
+                Console.Write($"[1] Testar Metodos da Classe Conta\n[2] Testar Métodos da Classe Funcionário\nInforme qual deseja executar: ");
                 opc = int.Parse(Console.ReadLine());
+                Console.Clear ();
                 switch (opc)
                 {
                     case 1:
-                        Console.WriteLine("\t\t---Testar Metodos Classe Conta---\n");
+                        
 
                         Agencia agencia1 = new Agencia("123");
                         Conta conta1 = new Conta(agencia1);
@@ -249,6 +250,7 @@ namespace ExemploBanco
                         
                         do
                         {
+                            Console.WriteLine("\t\t---Testar Metodos Classe Conta---\n");
                             Console.Write("\n[1] Consultar Saldo\n[2] Depositar\n[3] Sacar\n[4] Imprimir extrato\n[5] Sair\nInforme qual deseja realizar: ");
                             op = int.Parse(Console.ReadLine());
                             switch (op)
@@ -275,7 +277,7 @@ namespace ExemploBanco
                             op = 0;
                             Console.ReadKey();
                             Console.Clear();
-                        } while (op != 5);                        
+                        } while (op != 5);
                         
                         Console.ReadKey();
 
