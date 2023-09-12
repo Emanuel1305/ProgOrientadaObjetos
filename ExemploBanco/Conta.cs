@@ -8,38 +8,43 @@ namespace ExemploBanco
 {
     public class Conta
     {
-        public string numeroCont;
-        public double saldoCont;
-        public double limiteCont = 100;
-        public Agencia agencia;
+        private string numeroCont;
+        private double saldoCont;
+        private double limiteCont = 100;
+        private Agencia agencia;
+
+        public string NumeroCont { get => numeroCont; set => numeroCont = value; }
+        public double SaldoCont { get => saldoCont; set => saldoCont = value; }
+        public double LimiteCont { get => limiteCont; set => limiteCont = value; }
+        public Agencia Agencia { get => agencia; set => agencia = value; }
 
         public void Depositar(double valor)
         {
-            saldoCont = saldoCont + valor;
+            SaldoCont = SaldoCont + valor;
         }
         public void Sacar(double valor)
         {
-            saldoCont = saldoCont - valor;
+            SaldoCont = SaldoCont - valor;
         }
         public double ConsultarSaldo()
         {
-            return saldoCont;
+            return SaldoCont;
         }
         public void ImprimeExtrato()
         {
             Console.WriteLine("\n\t\t---Extrato Detalhado---");
-            Console.WriteLine($"\nSaldo: {saldoCont:c2}");
-            Console.WriteLine($"Limite: {limiteCont:c2}");
+            Console.WriteLine($"\nSaldo: {SaldoCont:c2}");
+            Console.WriteLine($"Limite: {LimiteCont:c2}");
         }
         public void TransferirParaConta(Conta contaTrans, Conta contaReceb, double valor)
         {
-            contaTrans.saldoCont = contaTrans.saldoCont - valor;
-            contaReceb.saldoCont = contaReceb.saldoCont + valor;
+            contaTrans.SaldoCont = contaTrans.SaldoCont - valor;
+            contaReceb.SaldoCont = contaReceb.SaldoCont + valor;
         }
 
         public Conta (Agencia agencia)
         {
-            this.agencia = agencia;
+            this.Agencia = agencia;
         }
     }
 }

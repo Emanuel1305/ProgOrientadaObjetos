@@ -10,82 +10,42 @@ namespace ExemploBanco
     {
         static void Main(string[] args)
         {
-            TestarMetodos();
-
-            //Sobrecarga
-            #region Testar Metodos da Classe Gerente
-            
-            Console.WriteLine("\t\tTestar Metodos da Classe Gerente\n\n");
-
-            Gerente gerente1 = new Gerente();
-            gerente1.nomeGeren = "João";
-            gerente1.salarioGeren = 1000;
-            Console.WriteLine($"Salario: {gerente1.salarioGeren:c2}");
-            gerente1.AumentarSalario();
-            Console.WriteLine($"Salario com aumento de 10%: {gerente1.salarioGeren:c2}");
-            Console.Write("\nInforme quantos % deseja aumentar do salario: ");
-            double taxa = Double.Parse(Console.ReadLine());
-            gerente1.AumentarSalario(taxa);
-            Console.Write($"Salario com aumento de {taxa}%: {gerente1.salarioGeren:c2}");
-            Console.ReadKey();
-            Console.Clear();
-            gerente1.ImprimirInformacoesGerente();
-
-            Console.ReadKey();
-            Console.Clear();
-            
-            #endregion
-
-            //Exercicio
-            #region Testar Tranferencia de Conta
-            /*
-            Console.Write("\t\t---Testar Tranferencia de Conta---\n\n");
-            Console.WriteLine($"CONTA 1\n{conta1.ConsultarSaldo()}\n" +
-                $"\nCONTA 2\n{conta2.ConsultarSaldo()}");
-
-            Console.Write("\n" +
-                $"\n[1] {conta1.numeroCont}" +
-                $"\n[2] {conta2.numeroCont}" +
-                $"\nQual sua conta: ");
-            int resp = int.Parse(Console.ReadLine());
-
-            switch (resp)
+            int opc = 0;
+            do
             {
-                case 1:
-                    Console.Write($"\nQual valor deseja tranferir para {conta2.numeroCont}? ");
-                    double v = double.Parse(Console.ReadLine());
-                    Console.ReadKey();
-                    Console.Clear();
-                    conta1.TransferirParaConta(conta1, conta2, v);
-                    Console.Write("CONTA 1");
-                    conta1.ImprimeExtrato();
-                    Console.Write("\nCONTA 2");
-                    conta2.ImprimeExtrato();
-                    break;
-                case 2:
-                    Console.Write($"\nQual valor deseja tranferir para {conta1.numeroCont}? ");
-                    double v2 = double.Parse(Console.ReadLine());
-                    conta1.TransferirParaConta(conta2, conta1, v2);
-                    Console.ReadKey();
-                    Console.Clear();
-                    Console.Write("CONTA 1");
-                    conta1.ImprimeExtrato();
-                    Console.Write("\nCONTA 2");
-                    conta2.ImprimeExtrato();
-                    break;
-                default:
-                    Console.Write("Numero informado não está disponível!!");
-                    break;
-
-            }
-            Console.ReadKey();
-            Console.Clear();
-            */
-            #endregion
-
-            //Construtores
+                Console.WriteLine("\t\t---Simulador De Banco---\n\n");
+                Console.WriteLine("[1] Classes e Objetos\n" +
+                    "[2] Metodos\n" +
+                    "[3] Tranferencia de Conta\n" +
+                    "[4] Sobrecarga\n" +
+                    "[5] Sair\n");
+                Console.Write("Qual opcão deseja execultar: ");
+                opc = int.Parse(Console.ReadLine());
+                Console.ReadKey();
+                switch (opc)
+                {
+                    case 1:
+                        TestarClassesObjetos();
+                        break;
+                    case 2:
+                        TestarMetodos();
+                        break;
+                    case 3:
+                        TransferenciaDeConta();
+                        break;
+                    case 4:
+                        TestarSobrecarga();
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida!");
+                        break;
+                }                
+                Console.Clear();
+                opc = 0;
+            } while (opc != 5);
+            
         }
-        public void TestarClassesObjetos()
+        public static void TestarClassesObjetos()
         {
             #region Testar Endereço
             Console.WriteLine("\t\t---Testar Classe Endereço---\n");
@@ -202,25 +162,25 @@ namespace ExemploBanco
             string msg4 = "";
 
             Conta conta1 = new Conta(agencia1);
-            conta1.numeroCont = "111 111 111-11";
-            conta1.saldoCont = 15000;
+            conta1.NumeroCont = "111 111 111-11";
+            conta1.SaldoCont = 15000;
             //conta1.agencia = agencia1; Vinculo de cliente com agencia
 
             msg4 += $"\nCONTA 1\n" +
-                $"Numero: {conta1.numeroCont}\n" +
-                $"Saldo: {conta1.saldoCont.ToString("c2")}\n" +
-                $"Limite: {conta1.limiteCont.ToString("c2")}\n" +
-                $"Agência: {conta1.agencia.numeroAgen}\n\n";
+                $"Numero: {conta1.NumeroCont}\n" +
+                $"Saldo: {conta1.SaldoCont.ToString("c2")}\n" +
+                $"Limite: {conta1.LimiteCont.ToString("c2")}\n" +
+                $"Agência: {conta1.Agencia.numeroAgen}\n\n";
 
             Conta conta2 = new Conta(agencia2);
-            conta2.numeroCont = "222 222 222-22";
-            conta2.saldoCont = 20000;
+            conta2.NumeroCont = "222 222 222-22";
+            conta2.SaldoCont = 20000;
 
             msg4 += $"CONTA 2\n" +
-                $"Numero: {conta2.numeroCont}\n" +
-                $"Saldo: {conta2.saldoCont.ToString("c2")}\n" +
-                $"Limite: {conta2.limiteCont.ToString("c2")}\n" +
-                $"Agencia: {conta2.agencia.numeroAgen}";
+                $"Numero: {conta2.NumeroCont}\n" +
+                $"Saldo: {conta2.SaldoCont.ToString("c2")}\n" +
+                $"Limite: {conta2.LimiteCont.ToString("c2")}\n" +
+                $"Agencia: {conta2.Agencia.numeroAgen}";
 
             Console.WriteLine(msg4);
 
@@ -236,7 +196,7 @@ namespace ExemploBanco
             int o = 0;
             do {
                 Console.WriteLine("\t\t---Testar Métodos---\n\n");
-                Console.Write($"[1] Testar Metodos da Classe Conta\n[2] Testar Métodos da Classe Funcionário\nInforme qual deseja executar: ");
+                Console.Write($"[1] Testar Metodos da Classe Conta\n[2] Testar Métodos da Classe Funcionário\n[3] Sair\nInforme qual deseja executar: ");
                 opc = int.Parse(Console.ReadLine());
                 Console.Clear ();
                 switch (opc)
@@ -246,7 +206,7 @@ namespace ExemploBanco
 
                         Agencia agencia1 = new Agencia("123");
                         Conta conta1 = new Conta(agencia1);
-                        conta1.saldoCont = 1000;
+                        conta1.SaldoCont = 1000;
                         
                         do
                         {
@@ -271,6 +231,8 @@ namespace ExemploBanco
                                 case 4:
                                     conta1.ImprimeExtrato();
                                     break;
+                                case 5:
+                                    continue;
                                 default:
                                     break;
                             }
@@ -289,8 +251,8 @@ namespace ExemploBanco
                         {
                             Console.WriteLine("\t\t---Testar Metodos Classe Funcionário---\n");
                             Funcionario funcionario1 = new Funcionario();
-                            funcionario1.nomeFunc = "Pedro";
-                            funcionario1.salarioFunc = 2000;
+                            funcionario1.NomeFunc = "Pedro";
+                            funcionario1.SalarioFunc = 2000;
                             Console.Write("[1] Imprimir Dados\n[2] Aumentar salário em 10%\n[3] Sair\nInforme qual deseja execultar: ");
                             o = int.Parse(Console.ReadLine());
                             switch (o)
@@ -302,6 +264,8 @@ namespace ExemploBanco
                                     funcionario1.AumentarSalario(10);
                                     funcionario1.ImprimirDados();
                                     break;
+                                case 3:
+                                    continue;
                                 default:
                                     break;
                             }
@@ -312,7 +276,8 @@ namespace ExemploBanco
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    
+                    case 3:
+                        return;
                     default:
                         Console.WriteLine("Opcão Iválida!!");
                         Console.ReadKey();
@@ -320,8 +285,77 @@ namespace ExemploBanco
                         break;
                 }
                 opc = 0;
-            } while (opc!=3);
-            
+            } while (opc != 3 || op != 5 || o != 3);
+            Console.WriteLine("Programa finalizado, aperte qualquer tecla para continuar");
+            Console.ReadKey();
+        }
+        public static void TransferenciaDeConta()
+        {
+            Agencia agencia = new Agencia("123");
+            Conta conta1 = new Conta(agencia);
+            Conta conta2 = new Conta(agencia);
+            Console.Write("\t\t---Testar Tranferencia de Conta---\n\n");
+            Console.WriteLine($"CONTA 1\n{conta1.ConsultarSaldo()}\n" +
+                $"\nCONTA 2\n{conta2.ConsultarSaldo()}");
+
+            Console.Write("\n" +
+                $"\n[1] {conta1.NumeroCont}" +
+                $"\n[2] {conta2.NumeroCont}" +
+                $"\nQual sua conta: ");
+            int resp = int.Parse(Console.ReadLine());
+
+            switch (resp)
+            {
+                case 1:
+                    Console.Write($"\nQual valor deseja tranferir para {conta2.NumeroCont}? ");
+                    double v = double.Parse(Console.ReadLine());
+                    Console.ReadKey();
+                    Console.Clear();
+                    conta1.TransferirParaConta(conta1, conta2, v);
+                    Console.Write("CONTA 1");
+                    conta1.ImprimeExtrato();
+                    Console.Write("\nCONTA 2");
+                    conta2.ImprimeExtrato();
+                    break;
+                case 2:
+                    Console.Write($"\nQual valor deseja tranferir para {conta1.NumeroCont}? ");
+                    double v2 = double.Parse(Console.ReadLine());
+                    conta1.TransferirParaConta(conta2, conta1, v2);
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.Write("CONTA 1");
+                    conta1.ImprimeExtrato();
+                    Console.Write("\nCONTA 2");
+                    conta2.ImprimeExtrato();
+                    break;
+                default:
+                    Console.Write("Numero informado não está disponível!!");
+                    break;
+
+            }
+            Console.ReadKey();
+            Console.Clear();
+        }
+        public static void TestarSobrecarga()
+        {
+            Console.WriteLine("\t\tTestar Metodos da Classe Gerente\n\n");
+
+            Gerente gerente1 = new Gerente();
+            gerente1.nomeGeren = "João";
+            gerente1.salarioGeren = 1000;
+            Console.WriteLine($"Salario: {gerente1.salarioGeren:c2}");
+            gerente1.AumentarSalario();
+            Console.WriteLine($"Salario com aumento de 10%: {gerente1.salarioGeren:c2}");
+            Console.Write("\nInforme quantos % deseja aumentar do salario: ");
+            double taxa = Double.Parse(Console.ReadLine());
+            gerente1.AumentarSalario(taxa);
+            Console.Write($"Salario com aumento de {taxa}%: {gerente1.salarioGeren:c2}");
+            Console.ReadKey();
+            Console.Clear();
+            gerente1.ImprimirInformacoesGerente();
+
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
