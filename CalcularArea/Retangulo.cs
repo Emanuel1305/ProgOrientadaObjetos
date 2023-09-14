@@ -26,17 +26,17 @@ namespace CalcularArea
         {
             get
             {
-                return X;
+                return x;
             }
             set
             {
                 if (value > 0)
                 {
-                    X = value;
+                    x = value;
                 }
                 else
                 {
-                    Console.WriteLine("A altura deve ser maior que zero.");
+                    Console.WriteLine("\nA altura deve ser maior que zero.");
                 }
             }
         }
@@ -44,17 +44,17 @@ namespace CalcularArea
         {
             get
             {
-                return Y;
+                return y;
             }
             set
             {
                 if (value > 0)
                 {
-                    Y = value;
+                    y = value;
                 }
                 else
                 { 
-                    Console.WriteLine("A altura deve ser maior que zero.");
+                    Console.WriteLine("\nA altura deve ser maior que zero.");
                 }
             }
         }
