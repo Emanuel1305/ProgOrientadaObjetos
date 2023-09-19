@@ -14,54 +14,80 @@ namespace SimuladorUrnaEletronica
         static void Main(string[] args)
         {
             int opc;
+
             do
             {
                 opc = 0;
-                Console.WriteLine("\t\t---Urna Eletrônica---\n\n");
 
-                Console.WriteLine("\t\t--Candidatos--\n" +
-                    "\n13 - Luiz Inácio Lula da Silva\n" +
-                    "14 - Kelmon Luís da Silva Souza\n" +
-                    "22 - Jair Messias Bolsonaro\n");
+                Console.WriteLine("\t\t---Urna Eletrônica---\n");
 
                 Console.Write("\n[1] Votar\n" +
-                    "[2] Ver quantidade de votos\n" +
-                    "[3] Sair\n" +
+                    "[2] Votar em massa\n" +
+                    "[3] Visualizar quantidade de votos\n" +
+                    "[4] Lista de candidatos\n" +
+                    "[5] Sair\n" +
                     "Informe a opção deseja execultar: ");
                 opc = int.Parse(Console.ReadLine());
 
-                if (opc == 1)
+                switch (opc)
                 {
-                    Console.Write("\nInforme o numero do candidato que deseja votar: ");
-                    int num = int.Parse(Console.ReadLine());
-                    Console.Write("Informe a quantidade de votos que deseja adicionar: ");
-                    int qtVotos = int.Parse(Console.ReadLine());
-                    AdicionarVotos(num, qtVotos);
-                } else if (opc == 2)
-                {
-                    ImprimirVotos();
+                    case 1:
+                        Votar();
+                        break;
+                    case 2:
+                        Console.Write("\nInforme a quantidade de votos que deseja adicionar: ");
+                        int valor = int.Parse(Console.ReadLine());
+                        Votar(valor);
+                        break;
+                    case 3:
+                        ImprimirVotos();
+                        break;
+                    case 4:
+                        MostrarListaDeCandidatos();
+                        Console.ReadKey();
+                        break;
+                    default:
+                        break;
                 }
+
+                Console.WriteLine("\nAperte qualquer tecla para continuar!");
                 Console.Clear();
 
-            } while (opc != 3);
+            } while (opc != 5);
+
             Console.WriteLine("Programa Finalizado!");
             Console.ReadKey();
         }
+        public static void Votar()
+        {
+            MostrarListaDeCandidatos();
+            Console.Write("\nInforme o numero do candidato que deseja votar: ");
+            int num = int.Parse(Console.ReadLine());
+            AdicionarVotos(num, 1);
+        }
+        public static void Votar(int v)
+        {
+            MostrarListaDeCandidatos();
+            Console.Write($"\nInforme o numero do candidato o qual deseja adicionar {v} votos: ");
+            int num = int.Parse(Console.ReadLine());
+            AdicionarVotos(num, v);
+        }
         public static void AdicionarVotos(int numero, int qntdVotos)
         {
-            if (numero == 13)
+            switch (numero)
             {
-                cand1.IncrementraVotos(qntdVotos);
-            }else if (numero == 14)
-            {
-                cand2.IncrementraVotos(qntdVotos);
-            }else if (numero == 22)
-            {
-                cand3.IncrementraVotos(qntdVotos);
-            }
-            else
-            {
-                Console.WriteLine("Numero inválido");
+                case 13:
+                    cand1.IncrementraVotos(qntdVotos);
+                    break;
+                case 14:
+                    cand2.IncrementraVotos(qntdVotos);
+                    break;
+                case 22:
+                    cand3.IncrementraVotos(qntdVotos);
+                    break;
+                default:
+                    Console.WriteLine("Numero inválido");
+                    break;
             }
         }
         public static void ImprimirVotos()
@@ -71,6 +97,16 @@ namespace SimuladorUrnaEletronica
                 $"Kelmon Luís da Silva Souza\t{cand2.NumeroVotos} votos\n" +
                 $"Jair Messias Bolsonaro\t\t{cand3.NumeroVotos} votos");
             Console.ReadKey();
+        }
+        public static void MostrarListaDeCandidatos()
+        {
+            Console.Clear();
+            Console.WriteLine("\t\t---Urna Eletrônica---\n\n");
+
+            Console.WriteLine("\t\t--Candidatos--\n" +
+                "\n13 - Luiz Inácio Lula da Silva\n" +
+                "14 - Kelmon Luís da Silva Souza\n" +
+                "22 - Jair Messias Bolsonaro\n");
         }
     }
 }

@@ -16,18 +16,24 @@ namespace SimuladorUrnaEletronica
         {
             Numero = numero;
             Nome = nome;
-            NumeroVotos = 0;
+            numeroVotos = 0;
         }
         public void IncrementraVotos(int valor)
         {
-            NumeroVotos += valor;
+            numeroVotos += valor;
         }
         public int ImprimirVotos()
         {
             return NumeroVotos;
         }
+        public void Informacoes()
+        {
+            Console.WriteLine($"\n\nNumero: {Numero}\n" +
+                $"Nome: {Nome}\n" +
+                $"Total de votos: {NumeroVotos}");
+        }
         public int Numero { get => numero; set => numero = value; }
         public string Nome { get => nome; set => nome = value; }
-        public int NumeroVotos { get => numeroVotos; set => numeroVotos = value; }
+        public int NumeroVotos { get => numeroVotos;}
     }
 }
