@@ -8,9 +8,14 @@ namespace SimuladorUrnaEletronica
 {
     internal class Program
     {
-        static Candidatos cand1 = new Candidatos(13, "Luiz Inácio Lula da Silva");
-        static Candidatos cand2 = new Candidatos(22, "Jair Messias Bolsonaro");
-        static Candidatos cand3 = new Candidatos(14, "Kelmon Luís da Silva Souza ");
+        static Candidatos cand1 = new Candidatos(12, "Ciro Gomes");
+        static Candidatos cand2 = new Candidatos(13, "Luiz Inácio Lula");
+        static Candidatos cand3 = new Candidatos(14, "Padre Kelmon");
+        static Candidatos cand4 = new Candidatos(15, "Simone Tebet");
+        static Candidatos cand5 = new Candidatos(16, "Vera"); 
+        static Candidatos cand6 = new Candidatos(22, "Jair Bolsonaro");
+        static Candidatos cand7 = new Candidatos(44, "Soraya Thronicke");
+        
         static void Main(string[] args)
         {
             int opc;
@@ -76,14 +81,26 @@ namespace SimuladorUrnaEletronica
         {
             switch (numero)
             {
-                case 13:
+                case 12:
                     cand1.IncrementraVotos(qntdVotos);
                     break;
-                case 14:
+                case 13:
                     cand2.IncrementraVotos(qntdVotos);
                     break;
-                case 22:
+                case 14:
                     cand3.IncrementraVotos(qntdVotos);
+                    break;
+                case 15:
+                    cand4.IncrementraVotos(qntdVotos);
+                    break;
+                case 16:
+                    cand5.IncrementraVotos(qntdVotos);
+                    break;
+                case 22:
+                    cand6.IncrementraVotos(qntdVotos);
+                    break;
+                case 44:
+                    cand7.IncrementraVotos(qntdVotos);
                     break;
                 default:
                     Console.WriteLine("Numero inválido");
@@ -93,9 +110,14 @@ namespace SimuladorUrnaEletronica
         public static void ImprimirVotos()
         {
             Console.Write("\n\n\t\t---Quantidade de Votos---\n\n");
-            Console.WriteLine($"Luiz Inácio Lula da Silva\t{cand1.NumeroVotos} votos\n" +
-                $"Kelmon Luís da Silva Souza\t{cand2.NumeroVotos} votos\n" +
-                $"Jair Messias Bolsonaro\t\t{cand3.NumeroVotos} votos");
+            Console.WriteLine($"{cand1.Nome} - {cand1.NumeroVotos} votos\n" +
+                $"{cand2.Nome} - {cand2.NumeroVotos} votos\n" +
+                $"{cand2.Nome} - {cand2.NumeroVotos} votos\n" +
+                $"{cand3.Nome} - {cand3.NumeroVotos} votos\n" +
+                $"{cand4.Nome} - {cand4.NumeroVotos} votos\n" +
+                $"{cand5.Nome} - {cand5.NumeroVotos} votos\n" +
+                $"{cand6.Nome} - {cand6.NumeroVotos} votos\n" +
+                $"{cand7.Nome} - {cand7.NumeroVotos} votos\n");
             Console.ReadKey();
         }
         public static void MostrarListaDeCandidatos()
