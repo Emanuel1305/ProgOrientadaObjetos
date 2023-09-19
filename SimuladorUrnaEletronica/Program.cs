@@ -24,14 +24,14 @@ namespace SimuladorUrnaEletronica
             {
                 opc = 0;
 
-                Console.WriteLine("\t\t---Urna Eletrônica---\n");
+                Console.WriteLine("\t     ---Urna Eletrônica---\n");
 
                 Console.Write("\n[1] Votar\n" +
                     "[2] Votar em massa\n" +
                     "[3] Visualizar quantidade de votos\n" +
                     "[4] Lista de candidatos\n" +
                     "[5] Sair\n" +
-                    "Informe a opção deseja execultar: ");
+                    "\nInforme a opção deseja execultar: ");
                 opc = int.Parse(Console.ReadLine());
 
                 switch (opc)
@@ -109,26 +109,34 @@ namespace SimuladorUrnaEletronica
         }
         public static void ImprimirVotos()
         {
-            Console.Write("\n\n\t\t---Quantidade de Votos---\n\n");
-            Console.WriteLine($"{cand1.Nome} - {cand1.NumeroVotos} votos\n" +
-                $"{cand2.Nome} - {cand2.NumeroVotos} votos\n" +
-                $"{cand2.Nome} - {cand2.NumeroVotos} votos\n" +
-                $"{cand3.Nome} - {cand3.NumeroVotos} votos\n" +
-                $"{cand4.Nome} - {cand4.NumeroVotos} votos\n" +
-                $"{cand5.Nome} - {cand5.NumeroVotos} votos\n" +
-                $"{cand6.Nome} - {cand6.NumeroVotos} votos\n" +
-                $"{cand7.Nome} - {cand7.NumeroVotos} votos\n");
+            Console.Write("\n\n\t---Quantidade de Votos---\n\n");
+            Console.WriteLine(
+                $"=====================================\n" +
+                $"{cand1.Nome} \t\t{cand1.NumeroVotos} votos\n" +
+                $"{cand2.Nome} \t{cand2.NumeroVotos} votos\n" +
+                $"{cand3.Nome} \t\t{cand3.NumeroVotos} votos\n" +
+                $"{cand4.Nome} \t\t{cand4.NumeroVotos} votos\n" +
+                $"{cand5.Nome} \t\t\t{cand5.NumeroVotos} votos\n" +
+                $"{cand6.Nome} \t\t{cand6.NumeroVotos} votos\n" +
+                $"{cand7.Nome} \t{cand7.NumeroVotos} votos\n" +
+                $"=====================================");
             Console.ReadKey();
         }
         public static void MostrarListaDeCandidatos()
         {
             Console.Clear();
-            Console.WriteLine("\t\t---Urna Eletrônica---\n\n");
+            Console.WriteLine("\t     ---Urna Eletrônica---\n");
 
-            Console.WriteLine("\t\t--Candidatos--\n" +
-                "\n13 - Luiz Inácio Lula da Silva\n" +
-                "14 - Kelmon Luís da Silva Souza\n" +
-                "22 - Jair Messias Bolsonaro\n");
+            Console.WriteLine("\t\t--Candidatos--\n\n" +
+                "    <==============================>\n" +
+                $"\t{cand1.Numero} -\t{cand1.Nome}\n" +
+                $"\t{cand2.Numero} -\t{cand2.Nome}\n" +
+                $"\t{cand3.Numero} -\t{cand3.Nome}\n" +
+                $"\t{cand4.Numero} -\t{cand4.Nome}\n" +
+                $"\t{cand5.Numero} -\t{cand5.Nome}\n" +
+                $"\t{cand6.Numero} -\t{cand6.Nome}\n" +
+                $"\t{cand7.Numero} -\t{cand7.Nome}\n" +
+                "    <==============================>");
         }
     }
 }
