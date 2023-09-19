@@ -14,11 +14,10 @@ namespace CalcularArea
             do
             {
                 opc = 0;
-                Console.WriteLine("\t\t---Calcular a area do retangulo---\n\n");
-                Console.WriteLine("informe os valores para calcular a area do retangulo");
-                Console.Write("x: ");
+                Console.WriteLine("\t\t---Calcular a area do retangulo---\n");
+                Console.Write("X - ");
                 double x = double.Parse(Console.ReadLine());
-                Console.Write("y: ");
+                Console.Write("Y - ");
                 double y = double.Parse(Console.ReadLine());
                 Retangulo retangulo = new Retangulo(x, y);
 
