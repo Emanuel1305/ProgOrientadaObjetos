@@ -19,9 +19,8 @@ namespace ExemploBanco
                     "[3] Tranferencia de Conta\n" +
                     "[4] Sobrecarga\n" +
                     "[5] Sair\n");
-                Console.Write("Qual opcão deseja execultar: ");
+                Console.Write("Qual opção deseja execultar: ");
                 opc = int.Parse(Console.ReadLine());
-                Console.ReadKey();
                 switch (opc)
                 {
                     case 1:
@@ -47,6 +46,7 @@ namespace ExemploBanco
         }
         public static void TestarClassesObjetos()
         {
+            Console.Clear();
             #region Testar Endereço
             Console.WriteLine("\t\t---Testar Classe Endereço---\n");
 
@@ -191,6 +191,7 @@ namespace ExemploBanco
         public static void TestarMetodos()
         {
             //Métodos
+            Console.Clear ();
             int opc = 0;
             int op = 0;
             int o = 0;
@@ -219,7 +220,7 @@ namespace ExemploBanco
                                     Console.WriteLine($"\nSaldo Disponivel: {conta1.ConsultarSaldo():c2}");
                                     break;
                                 case 2:
-                                    Console.Write("\n\nInforme o Valor que deseja depositar: ");
+                                    Console.Write("\nInforme o Valor que deseja depositar: ");
                                     double deposito = Double.Parse(Console.ReadLine());
                                     conta1.Depositar(deposito);
                                     break;
@@ -338,6 +339,7 @@ namespace ExemploBanco
         }
         public static void TestarSobrecarga()
         {
+            Console.Clear();
             Console.WriteLine("\t\tTestar Metodos da Classe Gerente\n\n");
 
             Gerente gerente1 = new Gerente();
