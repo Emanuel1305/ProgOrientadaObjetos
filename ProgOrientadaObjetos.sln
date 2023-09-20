@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcularArea", "CalcularAre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimuladorUrnaEletronica", "SimuladorUrnaEletronica\SimuladorUrnaEletronica.csproj", "{8D0ACA1F-4583-494B-A863-25D42D2B852B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimuladorBombaDeCombustivel", "SimuladorBombaDeCombustivel\SimuladorBombaDeCombustivel.csproj", "{8E01E0CA-119B-4CF2-BF4D-768E206690CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SImuladorPessoa", "SImuladorPessoa\SImuladorPessoa.csproj", "{4F823BC7-6910-400D-A2FE-486DB42BF679}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{8D0ACA1F-4583-494B-A863-25D42D2B852B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D0ACA1F-4583-494B-A863-25D42D2B852B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D0ACA1F-4583-494B-A863-25D42D2B852B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E01E0CA-119B-4CF2-BF4D-768E206690CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E01E0CA-119B-4CF2-BF4D-768E206690CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E01E0CA-119B-4CF2-BF4D-768E206690CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E01E0CA-119B-4CF2-BF4D-768E206690CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F823BC7-6910-400D-A2FE-486DB42BF679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F823BC7-6910-400D-A2FE-486DB42BF679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F823BC7-6910-400D-A2FE-486DB42BF679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F823BC7-6910-400D-A2FE-486DB42BF679}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
