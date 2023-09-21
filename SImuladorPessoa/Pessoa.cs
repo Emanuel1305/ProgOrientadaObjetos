@@ -28,23 +28,34 @@ namespace SImuladorPessoa
         public void Envelhecer(int idadeAdic)
         {
             Idade += idadeAdic;
-            if (Idade < 21)
-            {
-                double quant = 0.5 * idadeAdic;
-                Crescer(quant);
-            }
+        }
+        public void Envelhecer()
+        {
+            Envelhecer(1);
         }
         public void Engordar(double pesoAdic)
         {
             Peso += pesoAdic;
         }
+        public void Engordar()
+        {
+            Engordar(1);
+        }
         public void Emagrecer(double pesoDimin)
         {
             Peso -= pesoDimin;
         }
+        public void Emagrecer()
+        {
+            Emagrecer(1);
+        }
         public void Crescer(double alturaAdic)
         {
             Altura += alturaAdic;
+        }
+        public void Crescer()
+        {
+            Crescer(1);
         }
         public void ImprimirInformacoes()
         {
