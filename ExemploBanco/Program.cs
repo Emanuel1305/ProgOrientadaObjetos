@@ -8,8 +8,12 @@ namespace ExemploBanco
 {
     internal class Program
     {
+        static Gerente gerente1 = new Gerente();
+        static Agencia agencia = new Agencia("123");
+        static Conta conta1 = new Conta(agencia);
         static void Main(string[] args)
         {
+
             int opc = 0;
             do
             {
@@ -18,7 +22,8 @@ namespace ExemploBanco
                     "[2] Metodos\n" +
                     "[3] Tranferencia de Conta\n" +
                     "[4] Sobrecarga\n" +
-                    "[5] Sair\n");
+                    "[5] Herança\n" +
+                    "[6] Sair\n");
                 Console.Write("Qual opção deseja execultar: ");
                 opc = int.Parse(Console.ReadLine());
                 switch (opc)
@@ -35,14 +40,17 @@ namespace ExemploBanco
                     case 4:
                         TestarSobrecarga();
                         break;
+                    case 5:
+                        TestarHeranca();
+                        break;
                     default:
                         Console.WriteLine("Opção inválida!");
                         break;
-                }                
+                }
                 Console.Clear();
                 opc = 0;
-            } while (opc != 5);
-            
+            } while (opc != 6);
+
         }
         public static void TestarClassesObjetos()
         {
@@ -191,24 +199,21 @@ namespace ExemploBanco
         public static void TestarMetodos()
         {
             //Métodos
-            Console.Clear ();
+            Console.Clear();
             int opc = 0;
             int op = 0;
             int o = 0;
-            do {
+            do
+            {
                 Console.WriteLine("\t\t---Testar Métodos---\n\n");
                 Console.Write($"[1] Testar Metodos da Classe Conta\n[2] Testar Métodos da Classe Funcionário\n[3] Sair\nInforme qual deseja executar: ");
                 opc = int.Parse(Console.ReadLine());
-                Console.Clear ();
+                Console.Clear();
                 switch (opc)
                 {
                     case 1:
-                        
-
-                        Agencia agencia1 = new Agencia("123");
-                        Conta conta1 = new Conta(agencia1);
                         conta1.SaldoCont = 1000;
-                        
+
                         do
                         {
                             Console.WriteLine("\t\t---Testar Metodos Classe Conta---\n");
@@ -241,12 +246,12 @@ namespace ExemploBanco
                             Console.ReadKey();
                             Console.Clear();
                         } while (op != 5);
-                        
+
                         Console.ReadKey();
 
                         Console.Clear();
                         break;
-                    
+
                     case 2:
                         do
                         {
@@ -259,11 +264,11 @@ namespace ExemploBanco
                             switch (o)
                             {
                                 case 1:
-                                    funcionario1.ImprimirDados();
+                                    Console.WriteLine("\n" + funcionario1);
                                     break;
                                 case 2:
                                     funcionario1.AumentarSalario(10);
-                                    funcionario1.ImprimirDados();
+                                    Console.WriteLine("\n" + funcionario1);
                                     break;
                                 case 3:
                                     continue;
@@ -273,7 +278,7 @@ namespace ExemploBanco
                             o = 0;
                             Console.ReadKey();
                             Console.Clear();
-                        } while (o!= 3);
+                        } while (o != 3);
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -292,7 +297,6 @@ namespace ExemploBanco
         }
         public static void TransferenciaDeConta()
         {
-            Agencia agencia = new Agencia("123");
             Conta conta1 = new Conta(agencia);
             Conta conta2 = new Conta(agencia);
             Console.Write("\t\t---Testar Tranferencia de Conta---\n\n");
@@ -341,10 +345,9 @@ namespace ExemploBanco
         {
             Console.Clear();
             Console.WriteLine("\t\tTestar Metodos da Classe Gerente\n\n");
-
-            Gerente gerente1 = new Gerente();
             gerente1.Nome = "João";
             gerente1.Salario = 1000;
+
             Console.WriteLine($"Salario: {gerente1.Salario:c2}");
             gerente1.AumentarSalario();
             Console.WriteLine($"Salario com aumento de 10%: {gerente1.Salario:c2}");
@@ -354,14 +357,44 @@ namespace ExemploBanco
             Console.Write($"Salario com aumento de {taxa}%: {gerente1.Salario:c2}");
             Console.ReadKey();
             Console.Clear();
-            gerente1.ImprimirInformacoesGerente();
+            Console.WriteLine("\n" + gerente1);
 
             Console.ReadKey();
             Console.Clear();
         }
         public static void TestarHeranca()
         {
-            Console.WriteLine("\t\t---Testar Herança---\n");
+            Console.WriteLine("\n\t\t---Testar Herança---\n");
+
+            Funcionario func = new Funcionario();
+            func.Nome = "Pedro";
+            func.Salario = 1000;
+
+            Console.WriteLine(func + "\n");
+
+            Gerente gere = new Gerente();
+            gere.Nome = "Douglas";
+            gere.Salario = 2000;
+            gere.NomeDeUsuario = "DouglasLegramante";
+            gere.Senha = "Dg123";
+
+            Console.WriteLine(gere + "\n");
+
+            Telefonista tele = new Telefonista();
+            tele.Nome = "Sabrina";
+            tele.Salario = 1500;
+            tele.CodigoDeEstacaoDeTrabalho = 123;
+
+            Console.WriteLine(tele + "\n");
+
+            Secretaria secr = new Secretaria();
+            secr.Nome = "Joana";
+            secr.Salario = 1000;
+            secr.NumeroDeRamal = "12";
+
+            Console.WriteLine(secr + "\n");
+
+            Console.ReadKey();
         }
     }
 }

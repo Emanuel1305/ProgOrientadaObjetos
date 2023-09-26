@@ -38,10 +38,9 @@ namespace ExemploBanco
         {
             Salario = Salario + (Salario * taxa / 100);
         }
-        public void ImprimirDados()
+        public override string ToString()
         {
-            Console.WriteLine("\n\t\t---Imprimi os dados do funcionario---\n\n");
-            Console.WriteLine($"Nome: {Nome}\nSalário: {Salario:c2}");
-        }       
+            return $"Nome: {Nome}\nSalário: {Salario:c2}";
+        }
     }
 }

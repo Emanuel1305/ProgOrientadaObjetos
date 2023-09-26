@@ -23,10 +23,9 @@ namespace ExemploBanco
             double aumento = Salario * (taxa / 100);
             Salario = Salario + aumento;
         }
-        public void ImprimirInformacoesGerente()
+        public override string ToString()
         {
-            Console.WriteLine("\t\t---Informações gerente---\n\n");
-            Console.Write($"Nome: {Nome}\nSalario: {Salario:c2}");
+            return base.ToString() + $"\nNome de Usuario: {NomeDeUsuario}\nSenha: {Senha}";
         }
     }
 }

@@ -10,5 +10,9 @@ namespace ExemploBanco
     {
         private string numeroDeRamal;
         public string NumeroDeRamal { get => numeroDeRamal; set => numeroDeRamal = value; }
+        public override string ToString()
+        {
+            return base.ToString() + $"\nNumero de Ramal: {NumeroDeRamal}";
+        }
     }
 }
