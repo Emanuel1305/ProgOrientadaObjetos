@@ -252,8 +252,8 @@ namespace ExemploBanco
                         {
                             Console.WriteLine("\t\t---Testar Metodos Classe Funcionário---\n");
                             Funcionario funcionario1 = new Funcionario();
-                            funcionario1.NomeFunc = "Pedro";
-                            funcionario1.SalarioFunc = 2000;
+                            funcionario1.Nome = "Pedro";
+                            funcionario1.Salario = 2000;
                             Console.Write("[1] Imprimir Dados\n[2] Aumentar salário em 10%\n[3] Sair\nInforme qual deseja execultar: ");
                             o = int.Parse(Console.ReadLine());
                             switch (o)
@@ -343,21 +343,25 @@ namespace ExemploBanco
             Console.WriteLine("\t\tTestar Metodos da Classe Gerente\n\n");
 
             Gerente gerente1 = new Gerente();
-            gerente1.nomeGeren = "João";
-            gerente1.salarioGeren = 1000;
-            Console.WriteLine($"Salario: {gerente1.salarioGeren:c2}");
+            gerente1.Nome = "João";
+            gerente1.Salario = 1000;
+            Console.WriteLine($"Salario: {gerente1.Salario:c2}");
             gerente1.AumentarSalario();
-            Console.WriteLine($"Salario com aumento de 10%: {gerente1.salarioGeren:c2}");
+            Console.WriteLine($"Salario com aumento de 10%: {gerente1.Salario:c2}");
             Console.Write("\nInforme quantos % deseja aumentar do salario: ");
             double taxa = Double.Parse(Console.ReadLine());
             gerente1.AumentarSalario(taxa);
-            Console.Write($"Salario com aumento de {taxa}%: {gerente1.salarioGeren:c2}");
+            Console.Write($"Salario com aumento de {taxa}%: {gerente1.Salario:c2}");
             Console.ReadKey();
             Console.Clear();
             gerente1.ImprimirInformacoesGerente();
 
             Console.ReadKey();
             Console.Clear();
+        }
+        public static void TestarHeranca()
+        {
+            Console.WriteLine("\t\t---Testar Herança---\n");
         }
     }
 }

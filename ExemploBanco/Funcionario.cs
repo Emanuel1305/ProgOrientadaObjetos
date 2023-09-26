@@ -8,12 +8,12 @@ namespace ExemploBanco
 {
     public class Funcionario
     {
-        private string nomeFunc;
-        private double salarioFunc;
+        private string nome;
+        private double salario;
 
         //Ctrl + ponto em cima do atributo
-        public double SalarioFunc { get => salarioFunc; set => salarioFunc = value; }
-        public string NomeFunc { get => nomeFunc; set => nomeFunc = value; }
+        public double Salario { get => salario; set => salario = value; }
+        public string Nome { get => nome; set => nome = value; }
 
         /*Forma simples
         public string NomeFunc { get; set; }
@@ -36,12 +36,12 @@ namespace ExemploBanco
 
         public void AumentarSalario(int taxa)
         {
-            SalarioFunc = SalarioFunc + (SalarioFunc * taxa / 100);
+            Salario = Salario + (Salario * taxa / 100);
         }
         public void ImprimirDados()
         {
             Console.WriteLine("\n\t\t---Imprimi os dados do funcionario---\n\n");
-            Console.WriteLine($"Nome: {NomeFunc}\nSalário: {SalarioFunc:c2}");
+            Console.WriteLine($"Nome: {Nome}\nSalário: {Salario:c2}");
         }       
     }
 }

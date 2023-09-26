@@ -6,23 +6,27 @@ using System.Threading.Tasks;
 
 namespace ExemploBanco
 {
-    public class Gerente
+    public class Gerente : Funcionario
     {
-        public string nomeGeren;
-        public double salarioGeren;
+        private string nomeDeUsuario;
+        private string senha;
+
+        public string NomeDeUsuario { get => nomeDeUsuario; set => nomeDeUsuario = value; }
+        public string Senha { get => senha; set => senha = value; }
+
         public void AumentarSalario()
         {
             AumentarSalario(10);
         }
         public void AumentarSalario(double taxa)
         {
-            double aumento = salarioGeren * (taxa / 100);
-            salarioGeren = salarioGeren + aumento;
+            double aumento = Salario * (taxa / 100);
+            Salario = Salario + aumento;
         }
         public void ImprimirInformacoesGerente()
         {
             Console.WriteLine("\t\t---Informações gerente---\n\n");
-            Console.Write($"Nome: {nomeGeren}\nSalario: {salarioGeren:c2}");
+            Console.Write($"Nome: {Nome}\nSalario: {Salario:c2}");
         }
     }
 }
