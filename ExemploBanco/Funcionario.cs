@@ -33,7 +33,10 @@ namespace ExemploBanco
                
         }
         */
-
+        public void AumentarSalario()
+        {
+            AumentarSalario(10);
+        }
         public void AumentarSalario(int taxa)
         {
             Salario = Salario + (Salario * taxa / 100);

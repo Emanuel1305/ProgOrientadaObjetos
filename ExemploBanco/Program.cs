@@ -8,15 +8,61 @@ namespace ExemploBanco
 {
     internal class Program
     {
-        static Gerente gerente1 = new Gerente();
-        static Agencia agencia = new Agencia("123");
-        static Conta conta1 = new Conta(agencia);
+        static Agencia agen1 = new Agencia("123");
+        static Agencia agen2 = new Agencia("321");
+        static Funcionario func = new Funcionario();
+        static Gerente gere = new Gerente();
+        static Telefonista tele = new Telefonista();
+        static Secretaria secr = new Secretaria();
+        static Conta cont1 = new Conta(agen1);
+        static Conta cont2 = new Conta(agen2);
+        static Endereco ende1 = new Endereco();
+        static Endereco ende2 = new Endereco();
+        static Cliente clie1 = new Cliente();
+        static Cliente clie2 = new Cliente();
+        static CartaoDeCredito cart1 = new CartaoDeCredito("000 000 000 000");
+        static CartaoDeCredito cart2 = new CartaoDeCredito("111 111 111 111");
+        static int opcaoGeral;
+
         static void Main(string[] args)
         {
+            func.Nome = "Pedro";
+            func.Salario = 1000;
 
-            int opc = 0;
+            gere.Nome = "Douglas";
+            gere.Salario = 2000;
+            gere.NomeDeUsuario = "DouglasLegramante";
+            gere.Senha = "Dg123";
+
+            tele.Nome = "Sabrina";
+            tele.Salario = 1500;
+            tele.CodigoDeEstacaoDeTrabalho = 123;
+
+            cont1.LimiteCont = 1000;
+            cont1.SaldoCont = 1000;
+            cont2.LimiteCont = 2000;
+            cont2.SaldoCont = 2000;
+
+            ende1.rua = "Prof Carlos Mazala";
+            ende1.bairro = "Jardim America";
+            ende2.rua = "Limoneto";
+            ende2.bairro = "Dos Limoeiros";
+
+            clie1.nomeClien = "Emanuel";
+            clie1.codigoClien = "111";
+            clie1.endereco = ende1;
+            clie2.nomeClien = "Hemrique";
+            clie2.codigoClien = "222";
+            clie2.endereco = ende2;
+
+            cart1.dtValidadeCart = "00/00/0000";
+            cart1.cliente = clie1;
+            cart2.dtValidadeCart = "11/11/1111";
+            cart2.cliente = clie2;
+
             do
             {
+                opcaoGeral = 0;
                 Console.WriteLine("\t\t---Simulador De Banco---\n\n");
                 Console.WriteLine("[1] Classes e Objetos\n" +
                     "[2] Metodos\n" +
@@ -25,8 +71,8 @@ namespace ExemploBanco
                     "[5] Herança\n" +
                     "[6] Sair\n");
                 Console.Write("Qual opção deseja execultar: ");
-                opc = int.Parse(Console.ReadLine());
-                switch (opc)
+                opcaoGeral = int.Parse(Console.ReadLine());
+                switch (opcaoGeral)
                 {
                     case 1:
                         TestarClassesObjetos();
@@ -48,9 +94,9 @@ namespace ExemploBanco
                         break;
                 }
                 Console.Clear();
-                opc = 0;
-            } while (opc != 6);
-
+            } while (opcaoGeral != 6);
+            Console.WriteLine("Programa finalizado!");
+            Console.ReadKey();
         }
         public static void TestarClassesObjetos()
         {
@@ -60,21 +106,12 @@ namespace ExemploBanco
 
             string msg = "";
 
-            Endereco endereco1 = new Endereco();
-            endereco1.rua = "Prof Carlos Mazala";
-            endereco1.bairro = "Jardim America";
-
             msg += $"\nENDEREÇO 1\n" +
-                $"Rua: {endereco1.rua}\n" +
-                $"Bairro: {endereco1.bairro}\n\n";
-
-            Endereco endereco2 = new Endereco();
-            endereco2.rua = "Limoneto";
-            endereco2.bairro = "Dos Limoeiros";
-
+                $"Rua: {ende1.rua}\n" +
+                $"Bairro: {ende1.bairro}\n\n";
             msg += $"ENDEREÇO 2\n" +
-                $"Rua: {endereco2.rua}\n" +
-                $"Bairro: {endereco2.bairro}";
+                $"Rua: {ende2.rua}\n" +
+                $"Bairro: {ende2.bairro}";
 
             Console.Write(msg);
 
@@ -88,27 +125,16 @@ namespace ExemploBanco
 
             string msg1 = "";
 
-            Cliente cliente1 = new Cliente();
-            cliente1.nomeClien = "Emanuel";
-            cliente1.codigoClien = "111";
-            cliente1.endereco = endereco1;
-
             msg1 += $"\nCLIENTE 1\n" +
-                $"Nome: {cliente1.nomeClien}\n" +
-                $"Código: {cliente1.codigoClien}\n" +
-                $"\nENDEREÇO\nRua: {cliente1.endereco.rua}\n" +
-                $"Bairro: {cliente1.endereco.bairro}\n\n";
-
-            Cliente cliente2 = new Cliente();
-            cliente2.nomeClien = "Hemrique";
-            cliente2.codigoClien = "222";
-            cliente2.endereco = endereco2;
-
+                $"Nome: {clie1.nomeClien}\n" +
+                $"Código: {clie1.codigoClien}\n" +
+                $"\nENDEREÇO\nRua: {clie1.endereco.rua}\n" +
+                $"Bairro: {clie1.endereco.bairro}\n\n";
             msg1 += $"CLIENTE 2\n" +
-                $"Nome: {cliente2.nomeClien}\n" +
-                $"Código: {cliente2.codigoClien}\n" +
-                $"\nENDEREÇO\nRua: {cliente2.endereco.rua}\n" +
-                $"Bairro: {cliente2.endereco.bairro}";
+                $"Nome: {clie2.nomeClien}\n" +
+                $"Código: {clie2.codigoClien}\n" +
+                $"\nENDEREÇO\nRua: {clie2.endereco.rua}\n" +
+                $"Bairro: {clie2.endereco.bairro}";
 
             Console.WriteLine(msg1);
 
@@ -120,23 +146,14 @@ namespace ExemploBanco
 
             string msg2 = "";
 
-            CartaoDeCredito cartao1 = new CartaoDeCredito("000 000 000 000");
-            cartao1.dtValidadeCart = "00/00/0000";
-            cartao1.cliente = cliente1;
-
             msg2 += $"\nCARTÃO 1\n" +
-                $"Numero: {cartao1.numeroCart}\n" +
-                $"Data de validade: {cartao1.dtValidadeCart}\n" +
-                $"Pertence ao cliente: {cartao1.cliente.nomeClien}\n\n";
-
-            CartaoDeCredito cartao2 = new CartaoDeCredito("111 111 111 111");
-            cartao2.dtValidadeCart = "11/11/1111";
-            cartao2.cliente = cliente2;
-
+                $"Numero: {cart1.numeroCart}\n" +
+                $"Data de validade: {cart1.dtValidadeCart}\n" +
+                $"Pertence ao cliente: {cart1.cliente.nomeClien}\n\n";
             msg2 += $"CARTÃO 2\n" +
-                $"Numero: {cartao2.numeroCart}\n" +
-                $"Data de validade: {cartao2.dtValidadeCart}\n" +
-                $"Pertence ao cliente: {cartao2.cliente.nomeClien}";
+                $"Numero: {cart2.numeroCart}\n" +
+                $"Data de validade: {cart2.dtValidadeCart}\n" +
+                $"Pertence ao cliente: {cart2.cliente.nomeClien}";
 
             Console.WriteLine(msg2);
 
@@ -149,15 +166,10 @@ namespace ExemploBanco
 
             string msg3 = "";
 
-            Agencia agencia1 = new Agencia("123");
-
             msg3 += $"\nAGÊNCIA 1\n" +
-                $"Numero: {agencia1.numeroAgen}\n\n";
-
-            Agencia agencia2 = new Agencia("321");
-
+                $"Numero: {agen1.numeroAgen}\n\n";
             msg3 += $"AGÊNCIA 2\n" +
-                $"Numero: {agencia2.numeroAgen}";
+                $"Numero: {agen2.numeroAgen}";
 
             Console.WriteLine(msg3);
 
@@ -169,26 +181,19 @@ namespace ExemploBanco
 
             string msg4 = "";
 
-            Conta conta1 = new Conta(agencia1);
-            conta1.NumeroCont = "111 111 111-11";
-            conta1.SaldoCont = 15000;
             //conta1.agencia = agencia1; Vinculo de cliente com agencia
 
             msg4 += $"\nCONTA 1\n" +
-                $"Numero: {conta1.NumeroCont}\n" +
-                $"Saldo: {conta1.SaldoCont.ToString("c2")}\n" +
-                $"Limite: {conta1.LimiteCont.ToString("c2")}\n" +
-                $"Agência: {conta1.Agencia.numeroAgen}\n\n";
-
-            Conta conta2 = new Conta(agencia2);
-            conta2.NumeroCont = "222 222 222-22";
-            conta2.SaldoCont = 20000;
+                $"Numero: {cont1.NumeroCont}\n" +
+                $"Saldo: {cont1.SaldoCont.ToString("c2")}\n" +
+                $"Limite: {cont1.LimiteCont.ToString("c2")}\n" +
+                $"Agência: {cont1.Agencia.numeroAgen}\n\n";
 
             msg4 += $"CONTA 2\n" +
-                $"Numero: {conta2.NumeroCont}\n" +
-                $"Saldo: {conta2.SaldoCont.ToString("c2")}\n" +
-                $"Limite: {conta2.LimiteCont.ToString("c2")}\n" +
-                $"Agencia: {conta2.Agencia.numeroAgen}";
+                $"Numero: {cont2.NumeroCont}\n" +
+                $"Saldo: {cont2.SaldoCont.ToString("c2")}\n" +
+                $"Limite: {cont2.LimiteCont.ToString("c2")}\n" +
+                $"Agencia: {cont2.Agencia.numeroAgen}";
 
             Console.WriteLine(msg4);
 
@@ -212,43 +217,49 @@ namespace ExemploBanco
                 switch (opc)
                 {
                     case 1:
-                        conta1.SaldoCont = 1000;
+
 
                         do
                         {
+                            op = 0;
+
                             Console.WriteLine("\t\t---Testar Metodos Classe Conta---\n");
-                            Console.Write("\n[1] Consultar Saldo\n[2] Depositar\n[3] Sacar\n[4] Imprimir extrato\n[5] Sair\nInforme qual deseja realizar: ");
+                            Console.Write("\n[1] Consultar Saldo\n" +
+                                "[2] Depositar\n" +
+                                "[3] Sacar\n" +
+                                "[4] Imprimir extrato\n" +
+                                "[5] Voltar\n" +
+                                "[6] Sair\n" +
+                                "Informe qual deseja realizar: ");
                             op = int.Parse(Console.ReadLine());
+
                             switch (op)
                             {
                                 case 1:
-                                    Console.WriteLine($"\nSaldo Disponivel: {conta1.ConsultarSaldo():c2}");
+                                    Console.WriteLine($"\nSaldo Disponivel: {cont1.ConsultarSaldo():c2}");
+                                    Console.ReadKey();
                                     break;
                                 case 2:
                                     Console.Write("\nInforme o Valor que deseja depositar: ");
                                     double deposito = Double.Parse(Console.ReadLine());
-                                    conta1.Depositar(deposito);
+                                    cont1.Depositar(deposito);
                                     break;
                                 case 3:
                                     Console.Write("Informe o Valor que deseja sacar: ");
                                     double saque = Double.Parse(Console.ReadLine());
-                                    conta1.Sacar(saque);
+                                    cont1.Sacar(saque);
                                     break;
                                 case 4:
-                                    conta1.ImprimeExtrato();
+                                    cont1.ImprimeExtrato();
+                                    Console.ReadKey();
                                     break;
-                                case 5:
-                                    continue;
                                 default:
                                     break;
                             }
-                            op = 0;
-                            Console.ReadKey();
                             Console.Clear();
                         } while (op != 5);
 
                         Console.ReadKey();
-
                         Console.Clear();
                         break;
 
@@ -256,19 +267,17 @@ namespace ExemploBanco
                         do
                         {
                             Console.WriteLine("\t\t---Testar Metodos Classe Funcionário---\n");
-                            Funcionario funcionario1 = new Funcionario();
-                            funcionario1.Nome = "Pedro";
-                            funcionario1.Salario = 2000;
+
                             Console.Write("[1] Imprimir Dados\n[2] Aumentar salário em 10%\n[3] Sair\nInforme qual deseja execultar: ");
                             o = int.Parse(Console.ReadLine());
                             switch (o)
                             {
                                 case 1:
-                                    Console.WriteLine("\n" + funcionario1);
+                                    Console.WriteLine("\n" + func);
                                     break;
                                 case 2:
-                                    funcionario1.AumentarSalario(10);
-                                    Console.WriteLine("\n" + funcionario1);
+                                    func.AumentarSalario(10);
+                                    Console.WriteLine("\n" + func);
                                     break;
                                 case 3:
                                     continue;
@@ -297,41 +306,39 @@ namespace ExemploBanco
         }
         public static void TransferenciaDeConta()
         {
-            Conta conta1 = new Conta(agencia);
-            Conta conta2 = new Conta(agencia);
             Console.Write("\t\t---Testar Tranferencia de Conta---\n\n");
-            Console.WriteLine($"CONTA 1\n{conta1.ConsultarSaldo()}\n" +
-                $"\nCONTA 2\n{conta2.ConsultarSaldo()}");
+            Console.WriteLine($"CONTA 1\n{cont1.ConsultarSaldo()}\n" +
+                $"\nCONTA 2\n{cont2.ConsultarSaldo()}");
 
             Console.Write("\n" +
-                $"\n[1] {conta1.NumeroCont}" +
-                $"\n[2] {conta2.NumeroCont}" +
+                $"\n[1] {cont1.NumeroCont}" +
+                $"\n[2] {cont2.NumeroCont}" +
                 $"\nQual sua conta: ");
             int resp = int.Parse(Console.ReadLine());
 
             switch (resp)
             {
                 case 1:
-                    Console.Write($"\nQual valor deseja tranferir para {conta2.NumeroCont}? ");
+                    Console.Write($"\nQual valor deseja tranferir para {cont2.NumeroCont}? ");
                     double v = double.Parse(Console.ReadLine());
                     Console.ReadKey();
                     Console.Clear();
-                    conta1.TransferirParaConta(conta1, conta2, v);
+                    cont1.TransferirParaConta(cont1, cont2, v);
                     Console.Write("CONTA 1");
-                    conta1.ImprimeExtrato();
+                    cont1.ImprimeExtrato();
                     Console.Write("\nCONTA 2");
-                    conta2.ImprimeExtrato();
+                    cont2.ImprimeExtrato();
                     break;
                 case 2:
-                    Console.Write($"\nQual valor deseja tranferir para {conta1.NumeroCont}? ");
+                    Console.Write($"\nQual valor deseja tranferir para {cont1.NumeroCont}? ");
                     double v2 = double.Parse(Console.ReadLine());
-                    conta1.TransferirParaConta(conta2, conta1, v2);
+                    cont1.TransferirParaConta(cont2, cont1, v2);
                     Console.ReadKey();
                     Console.Clear();
                     Console.Write("CONTA 1");
-                    conta1.ImprimeExtrato();
+                    cont1.ImprimeExtrato();
                     Console.Write("\nCONTA 2");
-                    conta2.ImprimeExtrato();
+                    cont2.ImprimeExtrato();
                     break;
                 default:
                     Console.Write("Numero informado não está disponível!!");
@@ -345,19 +352,17 @@ namespace ExemploBanco
         {
             Console.Clear();
             Console.WriteLine("\t\tTestar Metodos da Classe Gerente\n\n");
-            gerente1.Nome = "João";
-            gerente1.Salario = 1000;
 
-            Console.WriteLine($"Salario: {gerente1.Salario:c2}");
-            gerente1.AumentarSalario();
-            Console.WriteLine($"Salario com aumento de 10%: {gerente1.Salario:c2}");
+            Console.WriteLine($"Salario: {gere.Salario:c2}");
+            gere.AumentarSalario();
+            Console.WriteLine($"Salario com aumento de 10%: {gere.Salario:c2}");
             Console.Write("\nInforme quantos % deseja aumentar do salario: ");
             double taxa = Double.Parse(Console.ReadLine());
-            gerente1.AumentarSalario(taxa);
-            Console.Write($"Salario com aumento de {taxa}%: {gerente1.Salario:c2}");
+            gere.AumentarSalario(taxa);
+            Console.Write($"Salario com aumento de {taxa}%: {gere.Salario:c2}");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("\n" + gerente1);
+            Console.WriteLine("\n" + gere);
 
             Console.ReadKey();
             Console.Clear();
@@ -366,35 +371,16 @@ namespace ExemploBanco
         {
             Console.WriteLine("\n\t\t---Testar Herança---\n");
 
-            Funcionario func = new Funcionario();
-            func.Nome = "Pedro";
-            func.Salario = 1000;
-
             Console.WriteLine(func + "\n");
-
-            Gerente gere = new Gerente();
-            gere.Nome = "Douglas";
-            gere.Salario = 2000;
-            gere.NomeDeUsuario = "DouglasLegramante";
-            gere.Senha = "Dg123";
-
             Console.WriteLine(gere + "\n");
-
-            Telefonista tele = new Telefonista();
-            tele.Nome = "Sabrina";
-            tele.Salario = 1500;
-            tele.CodigoDeEstacaoDeTrabalho = 123;
-
             Console.WriteLine(tele + "\n");
-
-            Secretaria secr = new Secretaria();
-            secr.Nome = "Joana";
-            secr.Salario = 1000;
-            secr.NumeroDeRamal = "12";
-
             Console.WriteLine(secr + "\n");
 
             Console.ReadKey();
+        }
+        public static void TestarBonificacao()
+        {
+            Console.WriteLine();
         }
     }
 }
