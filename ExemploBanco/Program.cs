@@ -38,10 +38,12 @@ namespace ExemploBanco
             tele.Salario = 1500;
             tele.CodigoDeEstacaoDeTrabalho = 123;
 
-            cont1.LimiteCont = 1000;
-            cont1.SaldoCont = 1000;
-            cont2.LimiteCont = 2000;
-            cont2.SaldoCont = 2000;
+            cont1.Numero = "000 000 000 000-00";
+            cont1.Limite = 1000;
+            cont1.Saldo = 1000;
+            cont1.Numero = "111 111 111 111-11";
+            cont2.Limite = 2000;
+            cont2.Saldo = 2000;
 
             ende1.rua = "Prof Carlos Mazala";
             ende1.bairro = "Jardim America";
@@ -63,8 +65,10 @@ namespace ExemploBanco
             do
             {
                 opcaoGeral = 0;
-                Console.WriteLine("\t\t---Simulador De Banco---\n\n");
-                Console.WriteLine("[1] Classes e Objetos\n" +
+                Console.WriteLine(@"
+█▀ █ █▀▄▀█ █░█ █░░ ▄▀█ █▀▄ █▀█ █▀█   █▀▄ █▀▀   █▄▄ ▄▀█ █▄░█ █▀▀ █▀█
+▄█ █ █░▀░█ █▄█ █▄▄ █▀█ █▄▀ █▄█ █▀▄   █▄▀ ██▄   █▄█ █▀█ █░▀█ █▄▄ █▄█");
+                Console.WriteLine("\n\n[1] Classes e Objetos\n" +
                     "[2] Metodos\n" +
                     "[3] Tranferencia de Conta\n" +
                     "[4] Sobrecarga\n" +
@@ -183,17 +187,7 @@ namespace ExemploBanco
 
             //conta1.agencia = agencia1; Vinculo de cliente com agencia
 
-            msg4 += $"\nCONTA 1\n" +
-                $"Numero: {cont1.NumeroCont}\n" +
-                $"Saldo: {cont1.SaldoCont.ToString("c2")}\n" +
-                $"Limite: {cont1.LimiteCont.ToString("c2")}\n" +
-                $"Agência: {cont1.Agencia.numeroAgen}\n\n";
-
-            msg4 += $"CONTA 2\n" +
-                $"Numero: {cont2.NumeroCont}\n" +
-                $"Saldo: {cont2.SaldoCont.ToString("c2")}\n" +
-                $"Limite: {cont2.LimiteCont.ToString("c2")}\n" +
-                $"Agencia: {cont2.Agencia.numeroAgen}";
+            msg4 += $"\nCONTA 1 {cont1}\nCONTA 2 {cont2}";
 
             Console.WriteLine(msg4);
 
@@ -217,13 +211,14 @@ namespace ExemploBanco
                 switch (opc)
                 {
                     case 1:
-
-
                         do
                         {
                             op = 0;
 
-                            Console.WriteLine("\t\t---Testar Metodos Classe Conta---\n");
+                            Console.WriteLine($"\t\t---Testar Metodos Classe Conta---\n" +
+                                $"==============================================\n" +
+                                $"{cont1}\n" +
+                                $"==============================================\n");
                             Console.Write("\n[1] Consultar Saldo\n" +
                                 "[2] Depositar\n" +
                                 "[3] Sacar\n" +
@@ -250,7 +245,7 @@ namespace ExemploBanco
                                     cont1.Sacar(saque);
                                     break;
                                 case 4:
-                                    cont1.ImprimeExtrato();
+                                    Console.WriteLine(cont1);
                                     Console.ReadKey();
                                     break;
                                 default:
@@ -306,39 +301,37 @@ namespace ExemploBanco
         }
         public static void TransferenciaDeConta()
         {
-            Console.Write("\t\t---Testar Tranferencia de Conta---\n\n");
-            Console.WriteLine($"CONTA 1\n{cont1.ConsultarSaldo()}\n" +
-                $"\nCONTA 2\n{cont2.ConsultarSaldo()}");
-
+            Console.Write($"\t\t---Testar Tranferencia de Conta---\n" +
+                $"==================================\n" +
+                $"CONTA 1 {cont1}\n" +
+                $"==================================\n" +
+                $"CONTA 2 {cont2}" +
+                $"==================================\n");
             Console.Write("\n" +
-                $"\n[1] {cont1.NumeroCont}" +
-                $"\n[2] {cont2.NumeroCont}" +
+                $"\n[1] {cont1.Numero}" +
+                $"\n[2] {cont2.Numero}" +
                 $"\nQual sua conta: ");
             int resp = int.Parse(Console.ReadLine());
 
             switch (resp)
             {
                 case 1:
-                    Console.Write($"\nQual valor deseja tranferir para {cont2.NumeroCont}? ");
+                    Console.Write($"\nQual valor deseja tranferir para {cont2.Numero}? ");
                     double v = double.Parse(Console.ReadLine());
                     Console.ReadKey();
                     Console.Clear();
                     cont1.TransferirParaConta(cont1, cont2, v);
-                    Console.Write("CONTA 1");
-                    cont1.ImprimeExtrato();
-                    Console.Write("\nCONTA 2");
-                    cont2.ImprimeExtrato();
+                    Console.Write($"CONTA 1 {cont1}" +
+                        $"\nCONTA 2 {cont2}");
                     break;
                 case 2:
-                    Console.Write($"\nQual valor deseja tranferir para {cont1.NumeroCont}? ");
+                    Console.Write($"\nQual valor deseja tranferir para {cont1.Numero}? ");
                     double v2 = double.Parse(Console.ReadLine());
                     cont1.TransferirParaConta(cont2, cont1, v2);
                     Console.ReadKey();
                     Console.Clear();
-                    Console.Write("CONTA 1");
-                    cont1.ImprimeExtrato();
-                    Console.Write("\nCONTA 2");
-                    cont2.ImprimeExtrato();
+                    Console.Write($"CONTA 1 {cont1}" +
+                        $"\nCONTA 2 {cont2}");
                     break;
                 default:
                     Console.Write("Numero informado não está disponível!!");

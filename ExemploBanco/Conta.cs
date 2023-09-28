@@ -8,43 +8,44 @@ namespace ExemploBanco
 {
     public class Conta
     {
-        private string numeroCont;
-        private double saldoCont;
-        private double limiteCont = 100;
+        private string numero;
+        private double saldo;
+        private double limite = 100;
         private Agencia agencia;
 
-        public string NumeroCont { get => numeroCont; set => numeroCont = value; }
-        public double SaldoCont { get => saldoCont; set => saldoCont = value; }
-        public double LimiteCont { get => limiteCont; set => limiteCont = value; }
+        public string Numero { get => numero; set => numero = value; }
+        public double Saldo { get => saldo; set => saldo = value; }
+        public double Limite { get => limite; set => limite = value; }
         public Agencia Agencia { get => agencia; set => agencia = value; }
 
         public void Depositar(double valor)
         {
-            SaldoCont = SaldoCont + valor;
+            Saldo = Saldo + valor;
         }
         public void Sacar(double valor)
         {
-            SaldoCont = SaldoCont - valor;
+            Saldo = Saldo - valor;
         }
         public double ConsultarSaldo()
         {
-            return SaldoCont;
-        }
-        public void ImprimeExtrato()
-        {
-            Console.WriteLine("\n\t\t---Extrato Detalhado---");
-            Console.WriteLine($"\nSaldo: {SaldoCont:c2}");
-            Console.WriteLine($"Limite: {LimiteCont:c2}");
+            return Saldo;
         }
         public void TransferirParaConta(Conta contaTrans, Conta contaReceb, double valor)
         {
-            contaTrans.SaldoCont = contaTrans.SaldoCont - valor;
-            contaReceb.SaldoCont = contaReceb.SaldoCont + valor;
+            contaTrans.Saldo = contaTrans.Saldo - valor;
+            contaReceb.Saldo = contaReceb.Saldo + valor;
         }
 
         public Conta (Agencia agencia)
         {
-            this.Agencia = agencia;
+            Agencia = agencia;
+        }
+        public override string ToString()
+        {
+            return $"\nNumero: {Numero}\n" +
+                $"Agência: {Agencia}\n" +
+                $"Saldo: {Saldo:c2}\n" +
+                $"Limite: {Limite:c2}";
         }
     }
 }
