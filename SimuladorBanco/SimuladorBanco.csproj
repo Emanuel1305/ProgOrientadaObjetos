@@ -47,9 +47,17 @@
     <Compile Include="Cartao.cs" />
     <Compile Include="CartaoDeCredito.cs" />
     <Compile Include="Clientes.cs" />
+    <Compile Include="Conta.cs" />
+    <Compile Include="ContaCorrente.cs" />
+    <Compile Include="ContaPoupanca.cs" />
+    <Compile Include="ControleDeEntradaESaida.cs" />
     <Compile Include="Funcionario.cs" />
+    <Compile Include="GeradorDeExtrato.cs" />
+    <Compile Include="Gerente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Secretaria.cs" />
+    <Compile Include="Telefonista.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
