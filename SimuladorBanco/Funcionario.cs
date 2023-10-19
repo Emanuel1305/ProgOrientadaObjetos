@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimuladorBanco
 {
-    public class Funcionario
+    abstract class Funcionario
     {
         private string nome;
         private double salario;

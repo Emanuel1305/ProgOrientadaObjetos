@@ -13,14 +13,14 @@ namespace SimuladorBanco
             DateTime agora = DateTime.Now;
             string horario = String.Format("{0:d/M/yyyy HH:mm:ss}", agora);
 
-            System.Console.WriteLine($"NOME: {f.Nome}\nDATA DE ENTRADA: {horario}");
+            System.Console.WriteLine($"NOME: {f.Nome}\nENTRADA: {horario}");
         }
         public void RegistrarSaida(Funcionario f)
         {
             DateTime agora = DateTime.Now;
             string horario = String.Format("{0:d/M/yyyy HH:mm:ss}", agora);
 
-            System.Console.WriteLine($"NOME: {f.Nome}\nDATA DE SAIDA: {horario}");
+            System.Console.WriteLine($"NOME: {f.Nome}\nSAIDA: {horario}");
         }
     }
 }

@@ -63,7 +63,7 @@ namespace SImuladorPessoa
                     default:
                         break;
                 }
-                Console.Clear();+
+                Console.Clear();
             } while (opc != 9);
             Console.ReadKey();
         }
