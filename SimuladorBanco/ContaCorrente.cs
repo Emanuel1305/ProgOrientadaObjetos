@@ -10,6 +10,15 @@ namespace SimuladorBanco
     {
         private double limite;
 
+        public ContaCorrente(Agencia agencia) : base(agencia)
+        {
+        }
+
         public double Limite { get => limite; set => limite = value; }
+
+        public override void ImprimeExtratoDetalhado()
+        {
+            Console.WriteLine($"AGÊNCIA: {Agencia.Numero}\nSALDO: {Saldo:c2}\nLIMITE: {Limite:c2}");
+        }
     }
 }

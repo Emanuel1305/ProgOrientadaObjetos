@@ -17,6 +17,8 @@ namespace SimuladorBanco
             Console.ReadKey();
             Console.Clear();
             TestarControleDePonto();
+            Console.Clear();
+            TestarClasseAbstrata();
 
             Console.ReadKey();
         }
@@ -44,11 +46,13 @@ namespace SimuladorBanco
         static void TestarGerador()
         {
             GeradorDeExtrato gerador = new GeradorDeExtrato();
+            Agencia a1 = new Agencia("123");
+            Agencia a2 = new Agencia("321");
 
-            ContaPoupanca cp = new ContaPoupanca();
+            ContaPoupanca cp = new ContaPoupanca(a1);
             cp.Saldo = 2000;
 
-            ContaCorrente cc = new ContaCorrente();
+            ContaCorrente cc = new ContaCorrente(a2);
             cc.Saldo = 1000;
 
             gerador.ImprimeExtratoBasico(cp);
@@ -69,6 +73,17 @@ namespace SimuladorBanco
             Console.WriteLine("\n");
             ponto.RegistrarEntrada(t);
             ponto.RegistrarSaida(t);
+        }
+        static void TestarClasseAbstrata()
+        {
+            Agencia a1 = new Agencia("123");
+
+            ContaPoupanca c = new ContaPoupanca(a1);
+            c.Saldo = 1000;
+            c.Aniversario = "02/11/2006";
+            c.ImprimeExtratoDetalhado();
+
+            Console.ReadKey();
         }
     }
 }

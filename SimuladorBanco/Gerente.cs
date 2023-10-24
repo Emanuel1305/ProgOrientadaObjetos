@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimuladorBanco
 {
+
     public class Gerente : Funcionario
     {
         private string usuario;
