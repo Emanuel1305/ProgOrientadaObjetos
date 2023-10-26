@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExemploAnimal", "ExemploAni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimuladorBanco", "SimuladorBanco\SimuladorBanco.csproj", "{F57287BF-EC2E-46C4-83AD-0E3E10FF826D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculoDeArea", "CalculoDeArea\CalculoDeArea.csproj", "{1AF02C9F-34C6-4D7F-A791-A0F2A9E38B25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{F57287BF-EC2E-46C4-83AD-0E3E10FF826D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F57287BF-EC2E-46C4-83AD-0E3E10FF826D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F57287BF-EC2E-46C4-83AD-0E3E10FF826D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF02C9F-34C6-4D7F-A791-A0F2A9E38B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF02C9F-34C6-4D7F-A791-A0F2A9E38B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF02C9F-34C6-4D7F-A791-A0F2A9E38B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF02C9F-34C6-4D7F-A791-A0F2A9E38B25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

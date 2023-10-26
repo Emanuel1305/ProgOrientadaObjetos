@@ -8,7 +8,6 @@ namespace SimuladorBanco
 {
     public abstract class Conta
     {
-        private double saldo;
         private Agencia agencia;
 
         protected Conta(Agencia agencia)
@@ -16,9 +15,14 @@ namespace SimuladorBanco
             Agencia = agencia;
         }
 
-        public double Saldo { get => saldo; set => saldo = value; }
+        public decimal Saldo { get; set; }
         public Agencia Agencia { get => agencia; set => agencia = value; }
-        public abstract void ImprimeExtratoDetalhado();
+
+        public abstract void Depositar(decimal valor);
+        public abstract void Transferir(Conta destino, decimal valor);
+
+        public abstract void Sacar(decimal valor);
+
 
         public override string ToString()
         {

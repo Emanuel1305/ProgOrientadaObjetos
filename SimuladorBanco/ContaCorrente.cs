@@ -6,19 +6,38 @@ using System.Threading.Tasks;
 
 namespace SimuladorBanco
 {
-    public class ContaCorrente : Conta
+    public class ContaCorrente : Conta, IGeradorDeExtrato
     {
-        private double limite;
-
         public ContaCorrente(Agencia agencia) : base(agencia)
         {
         }
 
-        public double Limite { get => limite; set => limite = value; }
+        public decimal Limite { get; set; }
 
-        public override void ImprimeExtratoDetalhado()
+
+        public override void Sacar(decimal valor)
         {
-            Console.WriteLine($"AGÊNCIA: {Agencia.Numero}\nSALDO: {Saldo:c2}\nLIMITE: {Limite:c2}");
+            Saldo = Saldo - valor;
+        }
+
+        public override void Depositar(decimal valor)
+        {
+            Saldo = Saldo + valor;
+        }
+
+        public override void Transferir(Conta destino, decimal valor)
+        {
+            Saldo = Saldo - valor;
+            destino.Saldo = destino.Saldo + valor;
+        }
+
+        public void GerarExtrato()
+        {
+            DateTime agora = DateTime.Now;
+            string horario = String.Format("{0:dd/MM/yyyy HH:mm:ss}", agora);
+            Console.WriteLine("Data: " + horario);
+            Console.WriteLine("Saldo: " + Saldo.ToString("c2"));
+            Console.WriteLine("Limite: " + Limite.ToString("c2"));
         }
     }
 }
